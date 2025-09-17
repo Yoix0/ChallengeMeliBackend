@@ -1,0 +1,11 @@
+rootProject.name = 'Challenge-Meli-Backend'
+include ':domain'
+include ':application'
+include ':h2-driven'
+include ':rest-driver'
+include ':boot'
+project(':domain').projectDir = file('./domain')
+project(':application').projectDir = file('./application')
+project(':h2-driven').projectDir = file('./infrastructure/driven-adapters/h2-driven')
+project(':rest-driver').projectDir = file('./infrastructure/driver-adapters/rest-driver')
+project(':boot').projectDir = file('./boot')

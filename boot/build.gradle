@@ -1,0 +1,22 @@
+plugins {
+    id 'org.springframework.boot' version '3.5.5'
+    id 'java'
+}
+
+dependencies {
+    // Incluye todos los módulos
+    implementation project(':domain')
+    implementation project(':application')
+    implementation project(':h2-driven')
+    implementation project(':rest-driver')
+
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Database
+    runtimeOnly 'com.h2database:h2'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

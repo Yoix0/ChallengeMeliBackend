@@ -1,0 +1,9 @@
+
+include ':models'
+include ':aplication'
+include ':entrypoint'
+include ':postgres-driven'
+project(':models').projectDir = file('./domains/models')
+project(':usecases').projectDir = file('./applications/usecases')
+project(':entrypoint').projectDir = file('./infrastructure/driver/entrypoint')
+project(':postgres-driven').projectDir = file('./infrastructure/driven/postgres-driven')

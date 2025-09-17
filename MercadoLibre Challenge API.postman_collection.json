@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "3a11d000-1285-4b4b-9c58-0c7a81758fdf",
+		"name": "MercadoLibre Challenge API",
+		"description": "Colección completa de endpoints para el API de MercadoLibre Challenge con arquitectura hexagonal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19074232"
+	},
+	"item": [
+		{
+			"name": "Item Detail API",
+			"item": [
+				{
+					"name": "Get Item Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/MLA123456789",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"MLA123456789"
+							]
+						},
+						"description": "Obtiene el detalle completo de un item específico por su ID"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search API",
+			"item": [
+				{
+					"name": "Basic Search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/search?query=iPhone&limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "iPhone"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Búsqueda básica de items por texto"
+					},
+					"response": []
+				},
+				{
+					"name": "Search with Category Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/search?query=Samsung&categoryId=MLA1055&limit=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Samsung"
+								},
+								{
+									"key": "categoryId",
+									"value": "MLA1055"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Búsqueda con filtro de categoría"
+					},
+					"response": []
+				},
+				{
+					"name": "Search by Price Range",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/search?minPrice=50000&maxPrice=200000&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "minPrice",
+									"value": "50000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "200000"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Búsqueda por rango de precios"
+					},
+					"response": []
+				},
+				{
+					"name": "Advanced Search with All Filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/search?query=Apple&categoryId=MLA1055&minPrice=100000&maxPrice=2000000&condition=new&freeShipping=true&sortBy=price&sortDirection=asc&limit=10&offset=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Apple"
+								},
+								{
+									"key": "categoryId",
+									"value": "MLA1055"
+								},
+								{
+									"key": "minPrice",
+									"value": "100000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "2000000"
+								},
+								{
+									"key": "condition",
+									"value": "new"
+								},
+								{
+									"key": "freeShipping",
+									"value": "true"
+								},
+								{
+									"key": "sortBy",
+									"value": "price"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						},
+						"description": "Búsqueda avanzada con todos los filtros disponibles"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trending API",
+			"item": [
+				{
+					"name": "Best Sellers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/trending/best-sellers?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trending",
+								"best-sellers"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene los items más vendidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Most Viewed",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/trending/most-viewed?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trending",
+								"most-viewed"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene los items más vistos"
+					},
+					"response": []
+				},
+				{
+					"name": "Trending by Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/MLA1055/trending?limit=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"MLA1055",
+								"trending"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Obtiene items trending por categoría específica"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recommendations API",
+			"item": [
+				{
+					"name": "Get Recommendations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/MLA123456789/recommendations?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"MLA123456789",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene recomendaciones para un item específico"
+					},
+					"response": []
+				},
+				{
+					"name": "Similar Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/MLA123456789/similar?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"MLA123456789",
+								"similar"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene items similares al especificado"
+					},
+					"response": []
+				},
+				{
+					"name": "Frequently Bought Together",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/MLA123456789/frequently-bought-together?limit=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"MLA123456789",
+								"frequently-bought-together"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Obtiene items frecuentemente comprados juntos"
+					},
+					"response": []
+				},
+				{
+					"name": "Also Viewed",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/MLA123456789/also-viewed?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"MLA123456789",
+								"also-viewed"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene items también vistos por otros usuarios"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller Analytics API",
+			"item": [
+				{
+					"name": "Get Seller Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sellers/12345/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sellers",
+								"12345",
+								"profile"
+							]
+						},
+						"description": "Obtiene el perfil completo de un vendedor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Seller Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sellers/12345/items?limit=5&offset=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sellers",
+								"12345",
+								"items"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						},
+						"description": "Obtiene los items de un vendedor específico"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Seller Reputation Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sellers/12345/reputation-details",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sellers",
+								"12345",
+								"reputation-details"
+							]
+						},
+						"description": "Obtiene detalles de reputación del vendedor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Rated Sellers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sellers/top-rated?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sellers",
+								"top-rated"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Obtiene los vendedores mejor valorados"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Comparison API",
+			"item": [
+				{
+					"name": "Compare Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/compare?ids=MLA123456789,MLA234567890",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"compare"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "MLA123456789,MLA234567890"
+								}
+							]
+						},
+						"description": "Compara múltiples items side-by-side"
+					},
+					"response": []
+				},
+				{
+					"name": "Compare Multiple Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/items/compare?ids=MLA123456789,MLA234567890,MLA345678901",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items",
+								"compare"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "MLA123456789,MLA234567890,MLA345678901"
+								}
+							]
+						},
+						"description": "Compara hasta 3 items diferentes"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081/api/v1",
+			"type": "string"
+		}
+	]
+}

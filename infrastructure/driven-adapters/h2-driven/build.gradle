@@ -1,0 +1,15 @@
+dependencies {
+    // Domain and Application dependencies
+    implementation project(':domain')
+    implementation project(':application')
+    
+    // Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.data:spring-data-jpa'
+    
+    // Database
+    runtimeOnly 'com.h2database:h2'
+    
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
