@@ -626,6 +626,304 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Person Management API",
+			"item": [
+				{
+					"name": "Create Person",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"documentType\": \"CC\",\n  \"documentNumber\": \"1023456789\",\n  \"firstName\": \"Carlos\",\n  \"secondName\": \"Andrés\",\n  \"firstLastName\": \"González\",\n  \"secondLastName\": \"Pérez\",\n  \"birthDate\": \"1995-03-15\",\n  \"email\": \"carlos.gonzalez@example.com\",\n  \"phoneNumber\": \"3012345678\",\n  \"address\": \"Calle 50 #25-30\",\n  \"city\": \"Bogotá\",\n  \"country\": \"Colombia\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/persons",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons"
+							]
+						},
+						"description": "Crea una nueva persona en el sistema con validaciones DDD"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Person",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Carlos\",\n  \"secondName\": \"Andrés\",\n  \"firstLastName\": \"González\",\n  \"secondLastName\": \"Pérez\",\n  \"email\": \"carlos.gonzalez.updated@example.com\",\n  \"phoneNumber\": \"3019876543\",\n  \"address\": \"Carrera 70 #40-20\",\n  \"city\": \"Bogotá\",\n  \"country\": \"Colombia\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/persons/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"1"
+							]
+						},
+						"description": "Actualiza la información de una persona existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"1"
+							]
+						},
+						"description": "Obtiene una persona por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person by Document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/document/CC/1234567890",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"document",
+								"CC",
+								"1234567890"
+							]
+						},
+						"description": "Obtiene una persona por tipo y número de documento"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Persons",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons?offset=0&limit=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Lista todas las personas con paginación"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Persons by Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/search?name=Juan&offset=0&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Juan"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Busca personas por nombre o apellido"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Persons by Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/status/ACTIVE?offset=0&limit=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"status",
+								"ACTIVE"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						},
+						"description": "Lista personas filtradas por estado (ACTIVE, INACTIVE, SUSPENDED)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate Person",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/1/deactivate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"1",
+								"deactivate"
+							]
+						},
+						"description": "Inactiva una persona (soft delete)"
+					},
+					"response": []
+				},
+				{
+					"name": "Activate Person",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/1/activate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"1",
+								"activate"
+							]
+						},
+						"description": "Activa una persona previamente inactiva"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Person Permanently",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/persons/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"persons",
+								"999"
+							]
+						},
+						"description": "Elimina permanentemente una persona (hard delete - solo admin)"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [

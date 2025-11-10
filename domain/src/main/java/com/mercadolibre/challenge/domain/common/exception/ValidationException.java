@@ -55,4 +55,20 @@ public class ValidationException extends BaseException {
             String.format("El campo %s excede la longitud máxima permitida", fieldName)
         );
     }
+
+    public static ValidationException invalidFormat(String fieldName, String details) {
+        return new ValidationException(
+            ExceptionCode.INVALID_FORMAT,
+            "Formato inválido para " + fieldName + ": " + details,
+            "El formato del campo " + fieldName + " no es válido"
+        );
+    }
+
+    public static ValidationException businessRule(String message) {
+        return new ValidationException(
+            ExceptionCode.BUSINESS_RULE_VIOLATION,
+            message,
+            message
+        );
+    }
 }

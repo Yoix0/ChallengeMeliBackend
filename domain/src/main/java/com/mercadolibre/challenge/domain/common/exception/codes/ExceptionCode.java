@@ -65,4 +65,7 @@ public class ExceptionCode {
     public static final String ITEM_NOT_ACTIVE = "ERR-602";
     public static final String ITEM_OUT_OF_STOCK = "ERR-603";
     public static final String ITEM_INVALID_PRICE = "ERR-604";
+
+    // Reglas de negocio
+    public static final String BUSINESS_RULE_VIOLATION = "ERR-701";
 }

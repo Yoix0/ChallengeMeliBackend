@@ -131,3 +131,33 @@ CREATE INDEX IF NOT EXISTS idx_items_status ON items(status);
 CREATE INDEX IF NOT EXISTS idx_item_attributes_item_id ON item_attributes(item_id);
 CREATE INDEX IF NOT EXISTS idx_item_pictures_item_id ON item_pictures(item_id);
 CREATE INDEX IF NOT EXISTS idx_shipping_methods_item_id ON shipping_methods(item_id);
+
+-- =============================================================================
+-- TABLA DE PERSONAS (PERSON DOMAIN)
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS persons (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    document_type VARCHAR(10) NOT NULL,
+    document_number VARCHAR(20) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    second_name VARCHAR(50),
+    first_last_name VARCHAR(50) NOT NULL,
+    second_last_name VARCHAR(50),
+    birth_date DATE NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone_number VARCHAR(20) NOT NULL,
+    address VARCHAR(200),
+    city VARCHAR(100),
+    country VARCHAR(100),
+    status VARCHAR(20) NOT NULL DEFAULT 'ACTIVE',
+    created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uk_person_document UNIQUE (document_type, document_number)
+);
+
+-- Índices para la tabla persons
+CREATE INDEX IF NOT EXISTS idx_persons_document ON persons(document_type, document_number);
+CREATE INDEX IF NOT EXISTS idx_persons_email ON persons(email);
+CREATE INDEX IF NOT EXISTS idx_persons_status ON persons(status);
+CREATE INDEX IF NOT EXISTS idx_persons_name ON persons(first_name, first_last_name);

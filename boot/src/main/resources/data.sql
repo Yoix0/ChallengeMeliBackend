@@ -187,3 +187,19 @@ INSERT INTO payment_methods (item_id, installments_quantity, installments_rate, 
                                                                                                                                                                       ('MLA890123456', 6, 10.0, 4583.17, true, true, true),
                                                                                                                                                                       ('MLA901234567', 12, 30.0, 9750.00, true, false, true),
                                                                                                                                                                       ('MLA012345678', 18, 20.0, 12333.28, true, true, true);
+
+-- =============================================================================
+-- DATOS DE PRUEBA PARA PERSONAS (PERSON DOMAIN)
+-- =============================================================================
+
+INSERT INTO persons (document_type, document_number, first_name, second_name, first_last_name, second_last_name, birth_date, email, phone_number, address, city, country, status, created_date, updated_date) VALUES
+('CC', '1234567890', 'Juan', 'Carlos', 'Pérez', 'García', '1990-05-15', 'juan.perez@email.com', '3001234567', 'Calle 100 #15-20', 'Bogotá', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CC', '9876543210', 'María', 'Fernanda', 'Rodríguez', 'López', '1985-08-22', 'maria.rodriguez@email.com', '3109876543', 'Carrera 7 #45-30', 'Medellín', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CE', 'AB123456', 'Carlos', 'Alberto', 'Gómez', 'Martínez', '1992-11-30', 'carlos.gomez@email.com', '3157890123', 'Avenida 68 #23-45', 'Cali', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CC', '5555555555', 'Ana', 'María', 'Silva', 'Torres', '1988-03-10', 'ana.silva@email.com', '3201111111', 'Calle 50 #12-34', 'Barranquilla', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('TI', '1111222233', 'Pedro', NULL, 'Ramírez', 'Castro', '2002-07-18', 'pedro.ramirez@email.com', '3112223334', 'Carrera 15 #80-90', 'Cartagena', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CC', '7777777777', 'Laura', 'Sofía', 'Hernández', 'Moreno', '1995-12-05', 'laura.hernandez@email.com', '3145556667', 'Calle 123 #45-67', 'Bucaramanga', 'Colombia', 'INACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CE', 'XY987654', 'Diego', 'Alejandro', 'Vargas', 'Díaz', '1991-09-25', 'diego.vargas@email.com', '3187778889', 'Avenida 30 #50-20', 'Pereira', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CC', '3333333333', 'Camila', NULL, 'Muñoz', 'Jiménez', '1998-02-14', 'camila.munoz@email.com', '3199990001', 'Carrera 80 #10-15', 'Manizales', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CC', '4444444444', 'Andrés', 'Felipe', 'Ríos', 'Sánchez', '1987-06-08', 'andres.rios@email.com', '3163334445', 'Calle 25 #18-30', 'Santa Marta', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('CE', 'CD456789', 'Valentina', 'Isabel', 'Morales', 'Cruz', '1993-10-20', 'valentina.morales@email.com', '3175556667', 'Avenida 5 #30-40', 'Ibagué', 'Colombia', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
